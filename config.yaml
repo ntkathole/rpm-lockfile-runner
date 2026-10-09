@@ -1,4 +1,5 @@
 # Feast odh-feature-server (rhoai-3.5) hermetic RPM lock.
+# Match Dockerfiles/Dockerfile.feature-server.konflux runtime microdnf install.
 # Use python-312-minimal:latest (not :1) so resolved openssh/crypto-policies
 # match the Konflux Dockerfile runtime base.
 arches:
@@ -9,22 +10,10 @@ arches:
 stages:
   - image: registry.access.redhat.com/ubi9/python-312-minimal:latest@sha256:f0f762a4babb280458627ab5cdaafbe86506aa60355c6fd4417074a5aa4727b8
     packages:
-      - cmake
-      - rust
-      - cargo
-      - openblas-devel
-      - libstdc++-static
-      - ncurses-devel
-      - perl
       - git
-      - make
-      - wget
-      - unzip
-      - unixODBC-devel
-      - lz4-devel
-      - libtool
       - libicu
       - libpq
-      - gcc
       - python3.12-devel
       - postgresql-devel
+      - gcc
+      - openblas-devel
